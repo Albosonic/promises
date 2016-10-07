@@ -27,7 +27,24 @@ var getGitHubProfile = function(user, callback) {
   });
 };
 
-var getGitHubProfileAsync; // TODO
+var getGitHubProfileAsync = function(user) {
+  var options = {
+    url: 'https://api.github.com/users/' + user,
+    headers: { 'User-Agent': 'request' },
+    json: true  // will JSON.parse(body) for us
+  };
+  return new Promise(function(resolve, reject) {
+    request.get(options, function(err, res, body) {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(body);
+      }
+    });
+  }).then(function(data) {
+    return data;
+  }).catch();  
+}; // TODO
 
 
 // (2) Asyncronous token generation
