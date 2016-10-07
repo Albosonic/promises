@@ -7,7 +7,7 @@
  *
  * HINT: We exported some similar promise-returning functions in previous exercises
  */
-
+var pluck = require('./promiseConstructor');
 var fs = require('fs');
 var Promise = require('bluebird');
 
@@ -15,7 +15,18 @@ var Promise = require('bluebird');
 
 var fetchProfileAndWriteToFile = function(readFilePath, writeFilePath) {
   // TODO
+  // console.log('$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
+  // module.exports.pluckFirstLineFromFileAsync(readFilePath).then(function(data){
+  //   console.log('************************', data);
+  // }).catch();
+
+
+
+
+  // module.exports.getGitHubProfileAsync(user);
 };
+
+
 
 // Export these functions so we can test them
 module.exports = {

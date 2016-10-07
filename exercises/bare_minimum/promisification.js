@@ -55,7 +55,14 @@ var generateRandomToken = function(callback) {
   });
 };
 
-var generateRandomTokenAsync; // TODO
+var generateRandomTokenAsync = function() {
+  return new Promise(function(resolve, reject) {
+    crypto.randomBytes(20, function(err, buffer) {
+      if (err) { return reject(err); }
+      resolve(buffer.toString('hex'));
+    });
+  });
+}; // TODO
 
 
 // (3) Asyncronous file manipulation
@@ -73,7 +80,23 @@ var readFileAndMakeItFunny = function(filePath, callback) {
   });
 };
 
-var readFileAndMakeItFunnyAsync; // TODO
+var readFileAndMakeItFunnyAsync = function(filePath) {
+  return new Promise(function(resolve, reject) {
+    fs.readFile(filePath, 'utf8', function(err, file) {
+      if (err) { return reject(err); }
+     
+      var funnyFile = file.split('\n')
+        .map(function(line) {
+          return line + ' lol';
+        })
+        .join('\n');
+
+      resolve(funnyFile);
+    });
+  }).then(function(data) {
+    return data;
+  }).catch();
+}; // TODO
 
 // Export these functions so we can test them and reuse them in later exercises
 module.exports = {
