@@ -2,6 +2,12 @@ var fs = require('fs');
 var expect = require('chai').expect;
 var Promise = require('bluebird');
 
+
+var fs = require('fs');
+var nock = require('nock');
+var expect = require('chai').expect;
+var Promise = require('bluebird');
+
 var delay = require('../../lib/asyncLib.js').delay;
 
 describe('PromiseLib', function() {
