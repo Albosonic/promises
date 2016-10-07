@@ -47,9 +47,9 @@ describe('Basic chaining', function() {
         .then(function() {
           var profile = JSON.parse(fs.readFileSync(fileToWriteTo, 'utf8'));
           expect(profile.id).to.equal(6980359);
-          done();
         })
         .catch(done);
+      done();
     });
 
     afterEach(function() {
